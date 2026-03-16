@@ -55,7 +55,7 @@ function VidaEscolar() {
   }
 
   return (
-    <section id="vida-escolar" className="py-20 bg-white">
+    <section id="vida-escolar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

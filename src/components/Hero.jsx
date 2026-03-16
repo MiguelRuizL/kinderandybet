@@ -2,52 +2,54 @@ import { Star, Heart, BookOpen } from 'lucide-react'
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="inicio" className="flex items-start bg-fixed-custom">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-white to-primary/5">
+      <div className="inset-0 bg-gradient-to-br from-background via-white to-primary/5">
         <div className="absolute top-20 left-10 w-20 h-20 bg-secondary/30 rounded-full blur-2xl"></div>
         <div className="absolute top-40 right-20 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-accent/20 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-              <Star size={18} className="fill-secondary text-secondary" />
-              <span className="font-medium text-sm">Educación de Calidad desde 1995</span>
-            </div>
-            
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Donde los{' '}
-              <span className="text-primary">pequeños sueños</span>{' '}
-              se hacen grandes
-            </h1>
-            
-            <p className="text-lg text-muted mb-8 max-w-xl mx-auto lg:mx-0">
-              En Andybet, cada niño es único. Ofrecemos educación maternal y preescolar 
-              con un enfoque integral que desarrolla las habilidades cognitivas, 
-              emocionales y sociales de tu pequeño.
-            </p>
+          <div className="flex flex-col xl:flex-row text-center xl:text-left xl:col-span-2">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+                <Star size={18} className="fill-secondary text-secondary" />
+                <span className="font-medium text-sm">Educación de Calidad desde 1995</span>
+              </div>
+              
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+                Donde los{' '}
+                <span className="text-primary">pequeños sueños</span>{' '}
+                se hacen grandes
+              </h1>
+              
+              <p className="text-lg text-muted mb-8 max-w-xl mx-auto lg:mx-0">
+                En Andybet, cada niño es único. Ofrecemos educación maternal y preescolar 
+                con un enfoque integral que desarrolla las habilidades cognitivas, 
+                emocionales y sociales de tu pequeño.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40"
-              >
-                Agenda una Visita
-              </a>
-              <a
-                href="#oferta"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-foreground font-semibold px-8 py-4 rounded-full transition-all duration-200 border-2 border-gray-200"
-              >
-                Conoce Más
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a
+                  href="#contacto"
+                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40"
+                >
+                  Agenda una Visita
+                </a>
+                <a
+                  href="#oferta"
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-foreground font-semibold px-8 py-4 rounded-full transition-all duration-200 border-2 border-gray-200"
+                >
+                  Conoce Más
+                </a>
+              </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
+            <div className="grid grid-cols-3 xl:grid-cols-1 gap-6 mt-12 pt-8 border-t xl:border-l xl:border-t-0 xl:pl-12 xl:ml-12 border-gray-200">
               <div className="text-center lg:text-left">
                 <div className="font-display text-3xl font-bold text-primary">30+</div>
                 <div className="text-sm text-muted">Años de Experiencia</div>

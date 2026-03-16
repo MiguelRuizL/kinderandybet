@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
+import { contactService } from '../services/ContactService';
 
 const contactInfo = [
   {
@@ -43,21 +44,23 @@ function Contacto() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setFormData({ name: '', email: '', phone: '', program: '', message: '' })
-    
-    setTimeout(() => setSubmitted(false), 5000)
-  }
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Solo le pasas el elemento del formulario (e.target)
+      await contactService.sendMail(e.target);
+      setSubmitted(true);
+    } catch (error) {
+      console.log('ERROR', error);
+      alert("Error al enviar el correo. Intenta de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <section id="contacto" className="py-20 bg-white">
+    <section id="contacto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -65,8 +68,7 @@ function Contacto() {
             Contacto
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            ¿Tienes alguna{' '}
-            <span className="text-primary">pregunta?</span>
+            ¿Tienes alguna{' '}<span className="text-primary">pregunta?</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
             Estamos aquí para ayudarte. Contáctanos y con gusto resolveremos todas tus dudas 
@@ -156,9 +158,9 @@ function Contacto() {
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 bg-white"
                   >
                     <option value="">Selecciona una opción</option>
-                    <option value="maternal">Maternal (1-3 años)</option>
-                    <option value="preescolar">Preescolar (3-6 años)</option>
-                    <option value="ambos">Ambos programas</option>
+                    <option value="Maternal">Maternal (1-3 años)</option>
+                    <option value="Preescolar">Preescolar (3-6 años)</option>
+                    <option value="Maternal y Preescolar">Ambos programas</option>
                   </select>
                 </div>
 

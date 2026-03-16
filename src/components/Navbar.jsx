@@ -2,20 +2,21 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { name: 'Inicio', href: '#inicio' },
-  { name: 'Oferta Educativa', href: '#oferta' },
-  { name: 'Admisiones', href: '#admisiones' },
-  { name: 'Vida Escolar', href: '#vida-escolar' },
-  { name: 'Nosotros', href: '#nosotros' },
-  { name: 'Contacto', href: '#contacto' },
+  { name: 'Inicio', href: '/' },
+  { name: 'Oferta Educativa', href: '/oferta' },
+  { name: 'Admisiones', href: '/admisiones' },
+  { name: 'Vida Escolar', href: '/vida-escolar' },
+  { name: 'Nosotros', href: '/nosotros' },
+  { name: 'Contacto', href: '/contacto' },
 ]
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [selectedOption, setSelectedOption] = useState('inicio');
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3">
@@ -31,22 +32,18 @@ function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-primary font-medium transition-colors duration-200"
+                onClick={() => {setSelectedOption(link.name.toLowerCase())}}
+                className={selectedOption === link.name.toLowerCase() ? 
+                  "text-primary font-medium transition-colors duration-200" : 
+                  "text-foreground hover:text-primary font-medium transition-colors duration-200"
+                }
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <a
-              href="#contacto"
-              className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200"
-            >
-              Inscríbete
-            </a>
-          </div>
+          <div className="hidden lg:block"></div>
 
           {/* Mobile Menu Button */}
           <button
