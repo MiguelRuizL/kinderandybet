@@ -90,7 +90,7 @@ function OfertaEducativa() {
               </ul>
 
               <a
-                href="#contacto"
+                href="/contacto"
                 className="inline-flex items-center gap-2 mt-6 text-primary font-semibold hover:underline"
               >
                 Más información →

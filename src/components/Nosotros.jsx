@@ -107,7 +107,7 @@ function Nosotros() {
                 </li>
               </ul>
               <a
-                href="#contacto"
+                href="/contacto"
                 className="inline-flex items-center justify-center bg-white text-primary font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
               >
                 Conoce al Equipo

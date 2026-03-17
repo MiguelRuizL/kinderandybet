@@ -1,29 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
 import { contactService } from '../services/ContactService';
 
+const info = contactService.getContactInfo();
 const contactInfo = [
   {
     icon: MapPin,
     title: 'Dirección',
-    content: 'Av. Educación #123, Col. Centro, Ciudad de México, CP 06000',
+    content: info.address,
   },
   {
     icon: Phone,
     title: 'Teléfono',
-    content: '+52 55 1234 5678',
-    href: 'tel:+525512345678',
+    content: info.phone,
+    href: `tel:+52${info.phone.replace(/\s/g, '')}`,
   },
   {
     icon: Mail,
     title: 'Email',
-    content: 'info@andybet.edu.mx',
-    href: 'mailto:info@andybet.edu.mx',
+    content: info.email,
+    href: `mailto:${info.email}`,
   },
   {
     icon: Clock,
     title: 'Horario',
-    content: 'Lunes a Viernes: 7:00 AM - 3:00 PM',
+    content: info.hours,
   },
 ]
 
@@ -231,7 +232,7 @@ function Contacto() {
             {/* Map Placeholder */}
             <div className="bg-primary/10 rounded-3xl overflow-hidden h-80">
               <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center">
+                {/* <div className="text-center">
                   <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <MapPin size={32} className="text-white" />
                   </div>
@@ -249,7 +250,13 @@ function Contacto() {
                   >
                     Ver en Google Maps →
                   </a>
-                </div>
+                </div> */}
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.133076775938!2d-100.8448081!3d20.5417353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842cbadf614bbd23%3A0x430be23b95606ab6!2sAv%20Juan%20Jos%C3%A9%20Torres%20Landa%201251%2C%20La%20Cruz%2C%2038028%20Celaya%2C%20Gto.!5e0!3m2!1ses!2smx!4v1773715892824!5m2!1ses!2smx" 
+                  style={{border:0}} className='h-full w-full'
+                  allowFullScreen="" loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
             </div>
           </div>

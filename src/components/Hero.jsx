@@ -34,13 +34,13 @@ function Hero() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
-                  href="#contacto"
+                  href="/contacto"
                   className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40"
                 >
-                  Agenda una Visita
+                  Contáctanos
                 </a>
                 <a
-                  href="#oferta"
+                  href="/oferta"
                   className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-foreground font-semibold px-8 py-4 rounded-full transition-all duration-200 border-2 border-gray-200"
                 >
                   Conoce Más

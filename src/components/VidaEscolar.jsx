@@ -160,7 +160,7 @@ function VidaEscolar() {
         <div className="text-center mt-12">
           <p className="text-muted mb-4">¿Quieres ver más de nuestra vida escolar?</p>
           <a
-            href="#contacto"
+            href="/contacto"
             className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200"
           >
             Agenda una Visita

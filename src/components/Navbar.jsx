@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useLocation } from 'react-router-dom';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
@@ -11,17 +12,17 @@ const navLinks = [
 ]
 
 function Navbar() {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState('inicio');
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-display font-bold text-xl">A</span>
+          <a href={navLinks[0].href} className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center">
+              <img src="andybet.png" alt="Andybet Logo" className='w-10 h-10 object-fill'/>
             </div>
             <span className="font-display font-bold text-2xl text-primary">Andybet</span>
           </a>
@@ -32,11 +33,13 @@ function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => {setSelectedOption(link.name.toLowerCase())}}
-                className={selectedOption === link.name.toLowerCase() ? 
-                  "text-primary font-medium transition-colors duration-200" : 
-                  "text-foreground hover:text-primary font-medium transition-colors duration-200"
-                }
+                onClick={() => {
+                  setSelectedOption(link.name.toLowerCase())
+                  console.log(link.name.toLowerCase());
+                  
+                }}
+                className={`font-medium transition-colors duration-200 
+                  ${location.pathname === link.href ? "text-primary" : "text-foreground hover:text-primary"}`}
               >
                 {link.name}
               </a>
@@ -71,7 +74,7 @@ function Navbar() {
               </a>
             ))}
             <a
-              href="#contacto"
+              href="/contacto"
               onClick={() => setIsOpen(false)}
               className="block bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-full text-center transition-colors duration-200 mt-4"
             >
